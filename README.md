@@ -23,7 +23,6 @@ dependencies {
 }
 ```
 
-
 ### Simple state machine example
 Implementation for the following diagram
 
@@ -112,3 +111,13 @@ public class CoinMachine {
 </td>
 </tr>
 </table>
+
+## Build it yourself
+```bash
+
+git clone https://github.com/codergoblin/fsm.git
+cd fsm
+./gradlew jar
+
+```
+Executable is located under `build/libs`
