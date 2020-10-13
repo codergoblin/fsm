@@ -1,7 +1,26 @@
 
+### Add it to your project
+
+Library can obtained in gradle using jitpack 
+
+```groovy
+repositories {
+    // ...
+    maven { url 'https://jitpack.io' }
+    // ...
+}
+
+
+dependencies {
+    // ...
+    implementation 'com.github.codergoblin:fsm:0.0.1-SNAPSHOT'
+    // ...
+}
+```
+
 
 ### Simple state machine example
-Implementation for the follwing diagram
+Implementation for the following diagram
 
 <pre>
 
