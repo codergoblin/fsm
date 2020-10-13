@@ -1,11 +1,12 @@
 package codegoblin.fsm
 
+import java.util.function.Consumer
 import codegoblin.fsm.InputMatcherTransition.Pair as Pair
 
 
 class TransitionBuilder<S, I> {
 
-    private var defaultTransformation: (S) -> S  = { it }
+    private var defaultTransformation: (S) -> S = { it }
     private val transformations: MutableList<Pair<S, I>> = ArrayList()
 
     fun withDefaultTransformation(transformation: (S) -> S): TransitionBuilder<S, I> {
@@ -66,6 +67,11 @@ class TransitionBuilder<S, I> {
 
         @JvmStatic
         @JvmOverloads
+        fun <T, I> match(
+            consumer: Consumer<TransitionBuilder<T, I>>
+        ): Transition<T, I> = match { consumer.accept(this) }
+
+        @JvmSynthetic
         fun <T, I> match(
             consumer: TransitionBuilder<T, I>.() -> Unit
         ): Transition<T, I> {
