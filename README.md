@@ -112,6 +112,36 @@ public class CoinMachine {
 </tr>
 </table>
 
+## Semantics
+
+```kotlin
+
+fun main() {
+
+    val walkingSimulation = FiniteStateMachine.create<String, Request> {
+        put("running",
+            match {
+                // Override default behavior of returning existing state in case no transitions are found 
+                withDefaultTransformation { "stand" }
+                    // Match exact value
+                    .match(Request("stop")).thenReturn("standing")
+                    // Match value with a qualifier
+                    .match { it -> it.action == "duck" }.thenReturn("ducking")
+                    // Apply matchers to namespaced properties for simpler semantcs
+                    .extracting { it.action }
+                    .match {
+                        match("jump").thenReturn("in the air")
+                    }
+            })
+        //...
+    }
+
+}
+data class Request(val action: String)
+
+```
+
+
 ## Build it yourself
 ```bash
 
