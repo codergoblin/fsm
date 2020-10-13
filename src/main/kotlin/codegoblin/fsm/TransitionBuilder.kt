@@ -16,7 +16,7 @@ class TransitionBuilder<S, I> {
 
     fun match(qualifier: I) = match { challenge: I -> challenge == qualifier }
 
-    fun match(predicate: (I) -> Boolean) = match { i: I, s: S -> predicate(i) }
+    fun match(predicate: (I) -> Boolean) = match { i: I, _: S -> predicate(i) }
 
     fun match(predicate: (I, S) -> Boolean) = TransitionBuilderCase(this, predicate)
 
@@ -66,7 +66,6 @@ class TransitionBuilder<S, I> {
     companion object {
 
         @JvmStatic
-        @JvmOverloads
         fun <T, I> match(
             consumer: Consumer<TransitionBuilder<T, I>>
         ): Transition<T, I> = match { consumer.accept(this) }
