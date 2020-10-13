@@ -16,6 +16,9 @@ buildscript {
 apply plugin: 'org.jetbrains.kotlin.jvm'
 apply plugin: 'idea'
 
+group = 'codegoblin.fsm'
+version = '0.0.1-SNAPSHOT'
+
 repositories {
     mavenCentral()
     jcenter()
