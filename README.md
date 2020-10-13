@@ -1,3 +1,8 @@
+# Finite state machine
+
+A simple finite state machine implementation written in Kotlin.
+Added jvm compiler hooks for better semantics when using this library in java.
+
 
 ### Add it to your project
 
