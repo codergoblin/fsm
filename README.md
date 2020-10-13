@@ -51,7 +51,8 @@ enum class State {
 </td>
 <td>
 
-```javaimport static codegoblin.fsm.TransitionBuilder.match;
+```java
+import static codegoblin.fsm.TransitionBuilder.match;
 
 public class CoinMachine {
 
